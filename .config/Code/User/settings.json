@@ -1,0 +1,96 @@
+{
+  "[dockerfile]": {
+    "editor.defaultFormatter": "ms-azuretools.vscode-docker"
+  },
+  "[json]": {
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false,
+    "editor.suggest.insertMode": "replace"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": false
+  },
+  "[markdown]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.quickSuggestions": false
+  },
+  "[shellscript]": {
+    "editor.defaultFormatter": "foxundermoon.shell-format",
+    "editor.formatOnPaste": false,
+    "editor.formatOnSave": true
+  },
+  "appworks.timeLimit": 10,
+  "code-eol.decorateBeforeEol": true,
+  "code-eol.highlightExtraWhitespace": true,
+  "code-eol.highlightNonDefault": true,
+  "diffEditor.wordWrap": "off",
+  "editor.bracketPairColorization.enabled": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnSave": true,
+  "editor.guides.bracketPairs": false,
+  "editor.guides.indentation": false,
+  "editor.inlayHints.enabled": false,
+  "editor.renderWhitespace": "all",
+  "editor.rulers": [36, 72, 80, 132],
+  "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?_",
+  "editor.wordWrap": "off",
+  "editor.wordWrapColumn": 132,
+  "files.associations": {
+    "*.json": "jsonc",
+    "Containerfile": "dockerfile",
+    "Containerfile.*": "dockerfile",
+    "Containerfile?.*": "dockerfile",
+    "*.sh": "shellscript",
+    "*.bash": "shellscript"
+  },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "git.ignoreMissingGitWarning": true,
+  "git.showUnpublishedCommitsButton": "never",
+  "git.untrackedChanges": "separate",
+  "redhat.telemetry.enabled": false,
+  "remote.containers.dockerPath": "podman",
+  "shellcheck.executablePath": "/usr/bin/shellcheck",
+  "shellformat.flag": "-s -i 2 -ci -sr",
+  "shellformat.path": "/usr/local/bin/shfmt",
+  "telemetry.telemetryLevel": "error",
+  "terminal.external.linuxExec": "xterm-256color",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
+  "terminal.integrated.persistentSessionScrollback": 200,
+  "terminal.integrated.tabs.title": "${process}${separator}${cwdFolder}",
+  "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’_",
+  "window.newWindowDimensions": "maximized",
+  "window.restoreWindows": "none",
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f"
+  },
+  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.editorAssociations": { "git-rebase-todo": "default" },
+  "workbench.iconTheme": "bearded-icons",
+  "workbench.startupEditor": "none",
+  "projectManager.tags": [
+    "container",
+    "develop",
+    "podman",
+    "shell",
+    "test"
+  ],
+  "projectManager.projectsLocation": "~/@vscode/.projectmanager",
+  "projectManager.any.baseFolders": ["~/@vscode"],
+  "projectManager.git.baseFolders": ["~/@vscode"],
+  "projectManager.any.ignoredFolders": ["node_modules", "out", "typings"],
+  "projectManager.git.ignoredFolders": [
+    "node_modules",
+    "out",
+    "typings",
+    ".haxelib"
+  ]
+}
