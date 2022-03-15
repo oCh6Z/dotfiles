@@ -24,6 +24,17 @@
     "editor.formatOnPaste": false,
     "editor.formatOnSave": true
   },
+  "[yaml]": {
+    "editor.defaultFormatter": "redhat.vscode-yaml",
+    "editor.insertSpaces": true,
+    "editor.tabSize": 2,
+    "editor.autoIndent": "keep",
+    "editor.quickSuggestions": {
+      "other": true,
+      "comments": false,
+      "strings": true
+    }
+  },
   "appworks.timeLimit": 10,
   "code-eol.decorateBeforeEol": true,
   "code-eol.highlightExtraWhitespace": true,
@@ -92,5 +103,30 @@
     "out",
     "typings",
     ".haxelib"
-  ]
+  ],
+  "githubIssues.queries": [
+    {
+      "label": "My Issues",
+      "query": "default"
+    },
+    {
+      "label": "Recent Issues",
+      "query": "state:open repo:${owner}/${repository} sort:updated-desc"
+    }
+  ],
+  "githubPullRequests.queries": [
+    {
+      "label": "Created By Anyone",
+      "query": "is:open"
+    },
+    {
+      "label": "Closed By Me",
+      "query": "is:closed author:${user}"
+    }
+  ],
+  "hadolint.hadolintPath": "/usr/local/bin/hadolint",
+  "hadolint.cliOptions": [
+    "--no-color"
+  ],
+  "githubIssues.issueBranchTitle": "issue/${issueNumber}"
 }
