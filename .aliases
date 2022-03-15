@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+
+alias l='ls'
+alias la='l --all'
+alias ll='l -l --all'
+alias shr='shred -vxz'
+alias rmv='mv -fv --suffix=none -t ~/.local/share/Trash/files'
+alias s='sudo'
+alias a='apt'
+alias sa='sudo apt'
+alias sau='s apt update'
+alias ag='apt-get'
+alias sag='s apt-get'
+alias ac='apt-cache'
+alias t='. torsocks on'
+alias tf='. torsocks off'
+alias ci='curl ifconfig.me'
+
+alias ..="cd .."
+alias ...="cd ../.."
+alias ....="cd ../../.."

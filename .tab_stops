@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+tab_width=4
+terminal_width=$(stty size | awk '{print $2}')
+
+set_tab_stops() {
+  local tab_width=$1 terminal_width=$2 tab_stops=''
+  for ((i = 1 + tab_width; i < terminal_width; i += tab_width)); do
+    tab_stops+=$i','
+  done
+  tabs $tab_stops
+}
+
+set_tab_stops "$tab_width" "$terminal_width"
