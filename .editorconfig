@@ -19,3 +19,15 @@ indent_size = 2
 
 [*.sh]
 indent_size = 2
+
+[.aliases]
+indent_size = 2
+
+[.bashrc]
+indent_size = 2
+
+[.functions]
+indent_size = 2
+
+[.tab_stops]
+indent_size = 2
