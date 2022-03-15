@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+function hello() {
+  echo "hello"
+}
+
+function shrm() {
+  shred -vxz "$@" && rm -fv "$@"
+}
+
+function gi() {
+  curl -sL https://www.toptal.com/developers/gitignore/api/"$*" | sed -e 's/# Created by https:\/\/www\.toptal\.com\/developers\/gitignore\/api\/[a-z,]*//' \
+    -e 's/# Edit at https:\/\/www\.toptal\.com\/developers\/gitignore?templates=[a-z,]*//' \
+    -e 's/# End of https:\/\/www\.toptal\.com\/developers\/gitignore\/api\/[a-z,]*//' \
+    -e '/^$/d' \
+    -e '/^#/ s/^/\n/'
+}
