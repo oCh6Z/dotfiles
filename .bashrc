@@ -3,17 +3,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# shellcheck source=/dev/null
-if [ -f ~/.aliases ]; then
-  . ~/.aliases
-fi
-
-if [ -f ~/.functions ]; then
-  . ~/.functions
-fi
-
-if [ -f ~/.tab_stops ]; then
-  . ~/.tab_stops
-fi
+for file in ~/.{aliases,functions,tab_stops}; do
+  if [[ -r $file ]] && [[ -f $file ]]; then
+    # shellcheck source=/dev/null
+    source "$file"
+  fi
+done
 
 # . torsocks on
