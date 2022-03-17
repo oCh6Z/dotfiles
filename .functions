@@ -15,3 +15,15 @@ function gi() {
     -e '/^$/d' \
     -e '/^#/ s/^/\n/'
 }
+
+function editorc-ch() {
+  if ! command -v ec > /dev/null 2>&1; then
+    VERSION="2.4.0"
+    OS="linux"
+    ARCH="amd64"
+    curl -O -L -C - https://github.com/editorconfig-checker/editorconfig-checker/releases/download/$VERSION/ec-$OS-$ARCH.tar.gz &&
+      sudo -v &&
+      sudo tar xzf ec-$OS-$ARCH.tar.gz --directory=/usr/local/bin/ --strip-components=1 &&
+      sudo mv /usr/local/bin/ec-linux-amd64 /usr/local/bin/ec
+  fi
+}
