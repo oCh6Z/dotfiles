@@ -16,7 +16,7 @@ function gi() {
     -e '/^#/ s/^/\n/'
 }
 
-function editorc-ch() {
+function editorconfig-inst() {
   if ! command -v ec > /dev/null 2>&1; then
     VERSION="2.4.0"
     OS="linux"
@@ -26,5 +26,17 @@ function editorc-ch() {
       sudo tar xzf ec-$OS-$ARCH.tar.gz --directory=/usr/local/bin/ --strip-components=1 &&
       sudo mv /usr/local/bin/ec-linux-amd64 /usr/local/bin/ec &&
       rm ec-$OS-$ARCH.tar.gz
+  fi
+}
+
+function hadolint-inst() {
+  if ! command -v hadolint > /dev/null 2>&1; then
+    VERSION="v2.9.1"
+    OS="Linux"
+    ARCH="x86_64"
+    sudo -v
+    sudo curl -O -L -C - https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-$OS-$ARCH &&
+      sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint &&
+      sudo chmod +x /usr/local/bin/hadolint
   fi
 }
