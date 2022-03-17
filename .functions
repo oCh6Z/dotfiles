@@ -24,6 +24,7 @@ function editorc-ch() {
     curl -O -L -C - https://github.com/editorconfig-checker/editorconfig-checker/releases/download/$VERSION/ec-$OS-$ARCH.tar.gz &&
       sudo -v &&
       sudo tar xzf ec-$OS-$ARCH.tar.gz --directory=/usr/local/bin/ --strip-components=1 &&
-      sudo mv /usr/local/bin/ec-linux-amd64 /usr/local/bin/ec
+      sudo mv /usr/local/bin/ec-linux-amd64 /usr/local/bin/ec &&
+      rm ec-$OS-$ARCH.tar.gz
   fi
 }
