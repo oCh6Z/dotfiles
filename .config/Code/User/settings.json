@@ -88,11 +88,13 @@
   "workbench.iconTheme": "bearded-icons",
   "workbench.startupEditor": "none",
   "projectManager.tags": [
-    "container",
     "develop",
-    "podman",
-    "shell",
-    "test"
+    "project",
+    "tech:container",
+    "tech:podman",
+    "tech:shell",
+    "test",
+    "user:user"
   ],
   "projectManager.projectsLocation": "~/@vscode/.projectmanager",
   "projectManager.any.baseFolders": ["~/@vscode"],
