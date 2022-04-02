@@ -30,15 +30,21 @@ function editorconfig-inst() {
 }
 
 function hadolint-inst() {
-  if ! command -v hadolint > /dev/null 2>&1; then
-    VERSION="v2.9.1"
-    OS="Linux"
-    ARCH="x86_64"
-    sudo -v
-    sudo curl -O -L -C - https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-$OS-$ARCH &&
-      sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint &&
-      sudo chmod +x /usr/local/bin/hadolint
+
+  sudo -v
+
+  if ! command -v curl > /dev/null 2>&1; then
+    sudo apt-get update &&
+      sudo apt-get install --no-install-recommends --assume-yes \
+        curl
   fi
+
+  VERSION="v2.10.0"
+  OS="Linux"
+  ARCH="x86_64"
+  sudo curl -O -L -C - https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-$OS-$ARCH &&
+    sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint &&
+    sudo chmod +x /usr/local/bin/hadolint
 }
 
 function trivy-inst() {
