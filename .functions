@@ -81,3 +81,28 @@ function trivy-inst() {
       trivy
   fi
 }
+
+function actionlint-inst() {
+  sudo -v
+  if ! command -v curl > /dev/null 2>&1; then
+    sudo apt-get update &&
+      sudo apt-get install --no-install-recommends --assume-yes \
+        curl
+  fi
+  VERSION=${1:-"1.6.10"}
+  case "$OSTYPE" in
+    linux-*)
+      OS=linux
+      EXT=tar.gz
+      ;;
+  esac
+  machine=$(uname -m)
+  case "$machine" in
+    x86_64)
+      ARCH=amd64
+      ;;
+  esac
+  curl -L https://github.com/rhysd/actionlint/releases/download/v"$VERSION"/actionlint_"${VERSION}"_${OS}_${ARCH}.${EXT} | sudo tar xvz --directory=/usr/local/bin/ actionlint &&
+    sudo chown root /usr/local/bin/actionlint &&
+    sudo chgrp root /usr/local/bin/actionlint
+}
