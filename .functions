@@ -17,16 +17,31 @@ function gi() {
 }
 
 function editorconfig-inst() {
-  if ! command -v ec > /dev/null 2>&1; then
-    VERSION="2.4.0"
-    OS="linux"
-    ARCH="amd64"
-    curl -O -L -C - https://github.com/editorconfig-checker/editorconfig-checker/releases/download/$VERSION/ec-$OS-$ARCH.tar.gz &&
-      sudo -v &&
-      sudo tar xzf ec-$OS-$ARCH.tar.gz --directory=/usr/local/bin/ --strip-components=1 &&
-      sudo mv /usr/local/bin/ec-linux-amd64 /usr/local/bin/ec &&
-      rm ec-$OS-$ARCH.tar.gz
+  sudo -v
+  if ! command -v curl > /dev/null 2>&1; then
+    sudo apt-get update &&
+      sudo apt-get install --no-install-recommends --assume-yes \
+        curl
   fi
+  VERSION=${1:-"2.4.0"}
+  case "$OSTYPE" in
+    linux-*)
+      OS=linux
+      EXT=tar.gz
+      ;;
+  esac
+  machine=$(uname -m)
+  case "$machine" in
+    x86_64)
+      ARCH=amd64
+      ;;
+  esac
+  curl -O -L -C - https://github.com/editorconfig-checker/editorconfig-checker/releases/download/"$VERSION"/ec-$OS-$ARCH.$EXT &&
+    sudo tar xzf ec-$OS-$ARCH.$EXT --directory=/usr/local/bin/ --strip-components=1 &&
+    sudo mv /usr/local/bin/ec-linux-amd64 /usr/local/bin/ec &&
+    rm ec-$OS-$ARCH.$EXT &&
+    sudo chown root /usr/local/bin/ec &&
+    sudo chgrp root /usr/local/bin/ec
 }
 
 function hadolint-inst() {
@@ -36,11 +51,15 @@ function hadolint-inst() {
       sudo apt-get install --no-install-recommends --assume-yes \
         curl
   fi
-  VERSION="v2.10.0"
-  OS="Linux"
-  ARCH="x86_64"
-  sudo curl -O -L -C - https://github.com/hadolint/hadolint/releases/download/$VERSION/hadolint-$OS-$ARCH &&
-    sudo mv hadolint-Linux-x86_64 /usr/local/bin/hadolint &&
+  VERSION=${1:-"2.10.0"}
+  case "$OSTYPE" in
+    linux-*)
+      OS=Linux
+      ;;
+  esac
+  ARCH=$(uname -m)
+  sudo curl -O -L -C - https://github.com/hadolint/hadolint/releases/download/v"$VERSION"/hadolint-$OS-"$ARCH" &&
+    sudo mv hadolint-$OS-"$ARCH" /usr/local/bin/hadolint &&
     sudo chmod +x /usr/local/bin/hadolint
 }
 
