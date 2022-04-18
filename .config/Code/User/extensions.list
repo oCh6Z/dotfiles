@@ -1,11 +1,13 @@
 alefragnani.project-manager
 BeardedBear.beardedicons
 cschleiden.vscode-github-actions
+DavidAnson.vscode-markdownlint
 EditorConfig.EditorConfig
 esbenp.prettier-vscode
 exiasr.hadolint
 file-icons.file-icons
 foxundermoon.shell-format
+GitHub.copilot
 GitHub.github-vscode-theme
 GitHub.vscode-pull-request-github
 iceworks-team.iceworks-time-master
@@ -14,11 +16,11 @@ mdickin.markdown-shortcuts
 medo64.render-crlf
 mhutchie.git-graph
 ms-azuretools.vscode-docker
-ms-vscode.azure-account
-ms-vscode.azurecli
 ms-vscode-remote.remote-containers
 ms-vscode-remote.remote-ssh
 ms-vscode-remote.remote-ssh-edit
+ms-vscode.azure-account
+ms-vscode.azurecli
 oderwat.indent-rainbow
 qcz.text-power-tools
 redhat.vscode-yaml
@@ -26,3 +28,4 @@ Remisa.shellman
 rogalmic.bash-debug
 timonwong.shellcheck
 vivaxy.vscode-conventional-commits
+vscjava.vscode-java-pack
