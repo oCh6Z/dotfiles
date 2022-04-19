@@ -1,20 +1,23 @@
 #!/usr/bin/env bash
 
-alias l='ls'
-alias la='l --all'
-alias ll='l -l --all'
-alias shr='shred -vxz'
-alias rmv='mv -fv --suffix=none -t ~/.local/share/Trash/files'
-alias s='sudo'
-alias a='apt'
-alias sa='sudo apt'
-alias sau='s apt update'
-alias ag='apt-get'
-alias sag='s apt-get'
-alias ac='apt-cache'
-alias t='. torsocks on'
-alias tf='. torsocks off'
-alias ci='curl ifconfig.me'
+alias a="apt"
+alias ac="apt-cache"
+alias ag="apt-get"
+alias alu="apt list --upgradable"
+alias ci="curl ifconfig.me"
+alias l="ls"
+alias la="l --all"
+alias ll="l -l --all"
+alias rmv="mv -fv --suffix=none -t ~/.local/share/Trash/files"
+alias s="sudo"
+alias sa="sudo apt"
+alias sag="s apt-get"
+alias sau="s apt update"
+alias shr="shred -vxz"
+alias stc="sudo tomb close"
+alias sto="sudo tomb open"
+alias t=". torsocks on"
+alias tf=". torsocks off"
 
 alias ..="cd .."
 alias ...="cd ../.."
