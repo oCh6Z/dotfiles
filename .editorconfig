@@ -31,3 +31,6 @@ indent_size = 2
 
 [.tab_stops]
 indent_size = 2
+
+[devcontainer.json]
+indent_style = tab
