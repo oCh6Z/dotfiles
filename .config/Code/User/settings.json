@@ -65,59 +65,7 @@
   "git.ignoreMissingGitWarning": true,
   "git.showUnpublishedCommitsButton": "never",
   "git.untrackedChanges": "separate",
-  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
-  "java.format.settings.profile":"GoogleStyle",
-  "java.jdt.ls.java.home": "$HOME/.sdkman/candidates/java/current",
-  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"$HOME/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
-  "maven.executable.path": "$HOME/.sdkman/candidates/maven/current/bin/mvn",
-  "maven.terminal.customEnv": [
-    {
-      "environmentVariable": "JAVA_HOME",
-      "value": "$HOME/.sdkman/candidates/java/current"
-    }
-  ],
-  "redhat.telemetry.enabled": false,
-  "remote.containers.dockerPath": "podman",
-  "shellcheck.executablePath": "/usr/bin/shellcheck",
-  "shellformat.flag": "-s -i 2 -ci -sr",
-  "shellformat.path": "/usr/local/bin/shfmt",
-  "telemetry.telemetryLevel": "error",
-  "terminal.external.linuxExec": "xterm-256color",
-  "terminal.integrated.cursorBlinking": true,
-  "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
-  "terminal.integrated.persistentSessionScrollback": 200,
-  "terminal.integrated.tabs.title": "${process}${separator}${cwdFolder}",
-  "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’_",
-  "window.newWindowDimensions": "maximized",
-  "window.restoreWindows": "none",
-  "workbench.colorCustomizations": {
-    "editor.lineHighlightBackground": "#1073cf2d",
-    "editor.lineHighlightBorder": "#9fced11f"
-  },
-  "workbench.colorTheme": "GitHub Dark Dimmed",
-  "workbench.editorAssociations": { "git-rebase-todo": "default" },
-  "workbench.iconTheme": "bearded-icons",
-  "workbench.startupEditor": "none",
-  "projectManager.tags": [
-    "develop",
-    "project",
-    "project:project",
-    "tech:container",
-    "tech:podman",
-    "tech:shell",
-    "test",
-    "user:user"
-  ],
-  "projectManager.projectsLocation": "~/@vscode/.projectmanager",
-  "projectManager.any.baseFolders": ["~/@vscode"],
-  "projectManager.git.baseFolders": ["~/@vscode"],
-  "projectManager.any.ignoredFolders": ["node_modules", "out", "typings"],
-  "projectManager.git.ignoredFolders": [
-    "node_modules",
-    "out",
-    "typings",
-    ".haxelib"
-  ],
+  "githubIssues.issueBranchTitle": "issue/${issueNumber}",
   "githubIssues.queries": [
     {
       "label": "My Issues",
@@ -142,5 +90,57 @@
   "hadolint.cliOptions": [
     "--no-color"
   ],
-  "githubIssues.issueBranchTitle": "issue/${issueNumber}"
+  "java.format.settings.url": "https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml",
+  "java.format.settings.profile":"GoogleStyle",
+  "java.jdt.ls.java.home": "$HOME/.sdkman/candidates/java/current",
+  "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"$HOME/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+  "maven.executable.path": "$HOME/.sdkman/candidates/maven/current/bin/mvn",
+  "maven.terminal.customEnv": [
+    {
+      "environmentVariable": "JAVA_HOME",
+      "value": "$HOME/.sdkman/candidates/java/current"
+    }
+  ],
+  "projectManager.tags": [
+    "develop",
+    "project:project",
+    "project",
+    "tech:container",
+    "tech:podman",
+    "tech:shell",
+    "test",
+    "user:user"
+  ],
+  "projectManager.projectsLocation": "~/@vscode/.projectmanager",
+  "projectManager.any.baseFolders": ["~/@vscode"],
+  "projectManager.git.baseFolders": ["~/@vscode"],
+  "projectManager.any.ignoredFolders": ["node_modules", "out", "typings"],
+  "projectManager.git.ignoredFolders": [
+    "node_modules",
+    "out",
+    "typings",
+    ".haxelib"
+  ],
+  "redhat.telemetry.enabled": false,
+  "remote.containers.dockerPath": "podman",
+  "shellcheck.executablePath": "/usr/bin/shellcheck",
+  "shellformat.flag": "-s -i 2 -ci -sr",
+  "shellformat.path": "/usr/local/bin/shfmt",
+  "telemetry.telemetryLevel": "error",
+  "terminal.external.linuxExec": "xterm-256color",
+  "terminal.integrated.cursorBlinking": true,
+  "terminal.integrated.persistentSessionReviveProcess": "onExitAndWindowClose",
+  "terminal.integrated.persistentSessionScrollback": 200,
+  "terminal.integrated.tabs.title": "${process}${separator}${cwdFolder}",
+  "terminal.integrated.wordSeparators": " ()[]{}',\"`─‘’_",
+  "window.newWindowDimensions": "maximized",
+  "window.restoreWindows": "none",
+  "workbench.colorCustomizations": {
+    "editor.lineHighlightBackground": "#1073cf2d",
+    "editor.lineHighlightBorder": "#9fced11f"
+  },
+  "workbench.colorTheme": "GitHub Dark Dimmed",
+  "workbench.editorAssociations": { "git-rebase-todo": "default" },
+  "workbench.iconTheme": "bearded-icons",
+  "workbench.startupEditor": "none"
 }
