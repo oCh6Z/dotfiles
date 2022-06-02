@@ -1,19 +1,28 @@
 #!/usr/bin/env bash
 
-function hello() {
-  echo "hello"
-}
-
-function shrm() {
-  shred -vxz "$@" && rm -fv "$@"
-}
-
-function gi() {
-  curl -sL https://www.toptal.com/developers/gitignore/api/"$*" | sed -e 's/# Created by https:\/\/www\.toptal\.com\/developers\/gitignore\/api\/[a-z,]*//' \
-    -e 's/# Edit at https:\/\/www\.toptal\.com\/developers\/gitignore?templates=[a-z,]*//' \
-    -e 's/# End of https:\/\/www\.toptal\.com\/developers\/gitignore\/api\/[a-z,]*//' \
-    -e '/^$/d' \
-    -e '/^#/ s/^/\n/'
+function actionlint-inst() {
+  sudo -v
+  if ! command -v curl > /dev/null 2>&1; then
+    sudo apt-get update &&
+      sudo apt-get install --no-install-recommends --assume-yes \
+        curl
+  fi
+  VERSION=${1:-"1.6.13"}
+  case "$OSTYPE" in
+    linux-*)
+      OS=linux
+      EXT=tar.gz
+      ;;
+  esac
+  machine=$(uname -m)
+  case "$machine" in
+    x86_64)
+      ARCH=amd64
+      ;;
+  esac
+  curl -L https://github.com/rhysd/actionlint/releases/download/v"$VERSION"/actionlint_"${VERSION}"_${OS}_${ARCH}.${EXT} | sudo tar xvz --directory=/usr/local/bin/ actionlint &&
+    sudo chown root /usr/local/bin/actionlint &&
+    sudo chgrp root /usr/local/bin/actionlint
 }
 
 function editorconfig-inst() {
@@ -44,6 +53,14 @@ function editorconfig-inst() {
     sudo chgrp root /usr/local/bin/ec
 }
 
+function gi() {
+  curl -sL https://www.toptal.com/developers/gitignore/api/"$*" | sed -e 's/# Created by https:\/\/www\.toptal\.com\/developers\/gitignore\/api\/[a-z,]*//' \
+    -e 's/# Edit at https:\/\/www\.toptal\.com\/developers\/gitignore?templates=[a-z,]*//' \
+    -e 's/# End of https:\/\/www\.toptal\.com\/developers\/gitignore\/api\/[a-z,]*//' \
+    -e '/^$/d' \
+    -e '/^#/ s/^/\n/'
+}
+
 function hadolint-inst() {
   sudo -v
   if ! command -v curl > /dev/null 2>&1; then
@@ -63,6 +80,14 @@ function hadolint-inst() {
     sudo chmod +x /usr/local/bin/hadolint
 }
 
+function hello() {
+  echo "hello"
+}
+
+function shrm() {
+  shred -vxz "$@" && rm -fv "$@"
+}
+
 function trivy-inst() {
   if ! command -v trivy > /dev/null 2>&1; then
     sudo -v
@@ -80,29 +105,4 @@ function trivy-inst() {
     sudo apt-get install --no-install-recommends --assume-yes \
       trivy
   fi
-}
-
-function actionlint-inst() {
-  sudo -v
-  if ! command -v curl > /dev/null 2>&1; then
-    sudo apt-get update &&
-      sudo apt-get install --no-install-recommends --assume-yes \
-        curl
-  fi
-  VERSION=${1:-"1.6.13"}
-  case "$OSTYPE" in
-    linux-*)
-      OS=linux
-      EXT=tar.gz
-      ;;
-  esac
-  machine=$(uname -m)
-  case "$machine" in
-    x86_64)
-      ARCH=amd64
-      ;;
-  esac
-  curl -L https://github.com/rhysd/actionlint/releases/download/v"$VERSION"/actionlint_"${VERSION}"_${OS}_${ARCH}.${EXT} | sudo tar xvz --directory=/usr/local/bin/ actionlint &&
-    sudo chown root /usr/local/bin/actionlint &&
-    sudo chgrp root /usr/local/bin/actionlint
 }
