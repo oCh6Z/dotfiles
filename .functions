@@ -2,48 +2,50 @@
 
 function actionlint-inst() {
   sudo -v
-  if ! command -v curl > /dev/null 2>&1; then
+  if ! command -v curl >/dev/null 2>&1; then
     sudo apt-get update &&
       sudo apt-get install --no-install-recommends --assume-yes \
         curl
   fi
-  VERSION=${1:-"1.6.15"}
+  VERSION=${1:-"1.6.26"}
   case "$OSTYPE" in
-    linux-*)
-      OS=linux
-      EXT=tar.gz
-      ;;
+  linux-*)
+    OS=linux
+    EXT=tar.gz
+    ;;
   esac
   machine=$(uname -m)
   case "$machine" in
-    x86_64)
-      ARCH=amd64
-      ;;
+  x86_64)
+    ARCH=amd64
+    ;;
   esac
-  curl -L https://github.com/rhysd/actionlint/releases/download/v"$VERSION"/actionlint_"${VERSION}"_${OS}_${ARCH}.${EXT} | sudo tar xvz --directory=/usr/local/bin/ actionlint &&
+  curl -O -L -C - https://github.com/rhysd/actionlint/releases/download/v"$VERSION"/actionlint_"${VERSION}"_${OS}_${ARCH}.${EXT} &&
+    sudo tar xzf actionlint_"${VERSION}"_${OS}_${ARCH}.${EXT} --directory=/usr/local/bin/ actionlint &&
+    sudo chmod +x /usr/local/bin/actionlint &&
     sudo chown root /usr/local/bin/actionlint &&
     sudo chgrp root /usr/local/bin/actionlint
 }
 
 function editorconfig-inst() {
   sudo -v
-  if ! command -v curl > /dev/null 2>&1; then
+  if ! command -v curl >/dev/null 2>&1; then
     sudo apt-get update &&
       sudo apt-get install --no-install-recommends --assume-yes \
         curl
   fi
-  VERSION=${1:-"2.5.0"}
+  VERSION=${1:-"2.7.2"}
   case "$OSTYPE" in
-    linux-*)
-      OS=linux
-      EXT=tar.gz
-      ;;
+  linux-*)
+    OS=linux
+    EXT=tar.gz
+    ;;
   esac
   machine=$(uname -m)
   case "$machine" in
-    x86_64)
-      ARCH=amd64
-      ;;
+  x86_64)
+    ARCH=amd64
+    ;;
   esac
   curl -O -L -C - https://github.com/editorconfig-checker/editorconfig-checker/releases/download/"$VERSION"/ec-$OS-$ARCH.$EXT &&
     sudo tar xzf ec-$OS-$ARCH.$EXT --directory=/usr/local/bin/ --strip-components=1 &&
@@ -63,16 +65,16 @@ function gi() {
 
 function hadolint-inst() {
   sudo -v
-  if ! command -v curl > /dev/null 2>&1; then
+  if ! command -v curl >/dev/null 2>&1; then
     sudo apt-get update &&
       sudo apt-get install --no-install-recommends --assume-yes \
         curl
   fi
-  VERSION=${1:-"2.10.0"}
+  VERSION=${1:-"2.12.0"}
   case "$OSTYPE" in
-    linux-*)
-      OS=Linux
-      ;;
+  linux-*)
+    OS=Linux
+    ;;
   esac
   ARCH=$(uname -m)
   sudo curl -O -L -C - https://github.com/hadolint/hadolint/releases/download/v"$VERSION"/hadolint-$OS-"$ARCH" &&
@@ -84,24 +86,51 @@ function hello() {
   echo "hello"
 }
 
-function shfmt-inst() {
+function shellcheck-inst() {
   sudo -v
-  if ! command -v curl > /dev/null 2>&1; then
+  if ! command -v curl >/dev/null 2>&1; then
     sudo apt-get update &&
       sudo apt-get install --no-install-recommends --assume-yes \
         curl
   fi
-  VERSION=${1:-"3.5.1"}
+  VERSION=${1:-"0.9.0"}
   case "$OSTYPE" in
-    linux-*)
-      OS=linux
-      ;;
+  linux-*)
+    OS=linux
+    ;;
   esac
   machine=$(uname -m)
   case "$machine" in
-    x86_64)
-      ARCH=amd64
-      ;;
+  x86_64)
+    ARCH=x86_64
+    ;;
+  esac
+  curl -O -L -C - https://github.com/koalaman/shellcheck/releases/download/v$VERSION/shellcheck-v$VERSION.$OS.$ARCH.tar.xz &&
+    sudo tar xJf shellcheck-v$VERSION.$OS.$ARCH.tar.xz --directory=/usr/local/bin/ --strip-components=1 &&
+    rm shellcheck-v$VERSION.$OS.$ARCH.tar.xz &&
+    sudo chmod +x /usr/local/bin/shellcheck &&
+    sudo chown root /usr/local/bin/shellcheck &&
+    sudo chgrp root /usr/local/bin/shellcheck
+}
+
+function shfmt-inst() {
+  sudo -v
+  if ! command -v curl >/dev/null 2>&1; then
+    sudo apt-get update &&
+      sudo apt-get install --no-install-recommends --assume-yes \
+        curl
+  fi
+  VERSION=${1:-"3.7.0"}
+  case "$OSTYPE" in
+  linux-*)
+    OS=linux
+    ;;
+  esac
+  machine=$(uname -m)
+  case "$machine" in
+  x86_64)
+    ARCH=amd64
+    ;;
   esac
   curl -O -L -C - https://github.com/mvdan/sh/releases/download/v$VERSION/shfmt_v"$VERSION"_"$OS"_"$ARCH" &&
     sudo mv shfmt_v"$VERSION"_"$OS"_"$ARCH" /usr/local/bin/shfmt &&
@@ -115,9 +144,9 @@ function shrm() {
 }
 
 function trivy-inst() {
-  if ! command -v trivy > /dev/null 2>&1; then
+  if ! command -v trivy >/dev/null 2>&1; then
     sudo -v
-    if ! command -v wget > /dev/null 2>&1 || ! command -v apt-transport-https > /dev/null 2>&1 || ! command -v gnupg > /dev/null 2>&1 || ! command -v lsb-release > /dev/null 2>&1; then
+    if ! command -v wget >/dev/null 2>&1 || ! command -v apt-transport-https >/dev/null 2>&1 || ! command -v gnupg >/dev/null 2>&1 || ! command -v lsb-release >/dev/null 2>&1; then
       sudo apt-get update &&
         sudo apt-get install --no-install-recommends --assume-yes \
           wget \
